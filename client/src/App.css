@@ -1,0 +1,111 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.header {
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+  border-bottom: 3px solid #ff1801;
+  padding: 20px 0;
+  box-shadow: 0 4px 12px rgba(255, 24, 1, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+  color: #ff1801;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav a {
+  color: #fff;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  padding-bottom: 5px;
+  transition: all 0.3s;
+}
+
+.nav a:hover {
+  color: #ff1801;
+  border-bottom-color: #ff1801;
+}
+
+.api-status {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.api-status.connected {
+  background-color: #28a745;
+  color: white;
+}
+
+.api-status.disconnected {
+  background-color: #dc3545;
+  color: white;
+}
+
+.api-status.checking {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.main-content {
+  flex: 1;
+  max-width: 1400px;
+  margin: 40px auto;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.footer {
+  background: #000;
+  border-top: 1px solid #444;
+  padding: 30px 20px;
+  text-align: center;
+  color: #999;
+  margin-top: 60px;
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .nav {
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+}

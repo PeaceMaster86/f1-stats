@@ -1,0 +1,220 @@
+.race-calendar {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.race-calendar h1 {
+  color: #ff1801;
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.race-calendar .controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-radius: 8px;
+  border-left: 3px solid #ff1801;
+}
+
+.race-calendar .controls label {
+  font-weight: bold;
+  color: #fff;
+}
+
+.race-calendar .controls select {
+  padding: 8px 12px;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #ff1801;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.race-card {
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border: 2px solid #444;
+  border-radius: 8px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.race-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff1801;
+  box-shadow: 0 8px 20px rgba(255, 24, 1, 0.2);
+}
+
+.race-card.completed {
+  border-color: #28a745;
+  background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), transparent);
+}
+
+.race-card.scheduled {
+  border-color: #ff1801;
+  background: linear-gradient(135deg, rgba(255, 24, 1, 0.05), transparent);
+}
+
+.race-card.upcoming {
+  border-color: #ffc107;
+  background: linear-gradient(135deg, rgba(255, 193, 7, 0.05), transparent);
+}
+
+.race-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.race-round {
+  background-color: #ff1801;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.race-status {
+  font-size: 12px;
+  color: #ff1801;
+  font-weight: bold;
+}
+
+.race-card.completed .race-status {
+  color: #28a745;
+}
+
+.race-card.upcoming .race-status {
+  color: #ffc107;
+}
+
+.race-card h3 {
+  color: #fff;
+  font-size: 20px;
+  margin: 0 0 15px 0;
+}
+
+.race-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px;
+  background: linear-gradient(135deg, rgba(255, 24, 1, 0.1), transparent);
+  border-radius: 4px;
+}
+
+.detail-item .label {
+  font-weight: bold;
+  color: #ff1801;
+  min-width: 70px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.detail-item .value {
+  color: #bbb;
+  font-size: 14px;
+  text-align: right;
+  flex: 1;
+}
+
+.race-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  border-top: 1px solid #333;
+}
+
+.race-link {
+  color: #ff1801;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.race-link:hover {
+  color: #ff4422;
+  transform: translateX(5px);
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #ff1801;
+  font-size: 18px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.error-message {
+  background-color: #dc3545;
+  color: white;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.no-data {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+  font-size: 16px;
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .calendar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .race-card {
+    padding: 15px;
+  }
+}
