@@ -19,7 +19,11 @@ app.get('/api/health', (req, res) => {
 app.get('/api/standings/:year?', async (req, res) => {
   try {
     const year = req.params.year || new Date().getFullYear();
-    const response = await axios.get(`${ERGAST_API}/${year}/driverStandings.json`);
+    const response = await axios.get(`${ERGAST_API}/${year}/driverStandings.json`, {
+      headers: {
+        'User-Agent': 'F1 Statistics App/1.0'
+      }
+    });
     res.json(response.data.MRData);
   } catch (error) {
     console.error('Error fetching driver standings:', error);
@@ -31,7 +35,11 @@ app.get('/api/standings/:year?', async (req, res) => {
 app.get('/api/constructors/:year?', async (req, res) => {
   try {
     const year = req.params.year || new Date().getFullYear();
-    const response = await axios.get(`${ERGAST_API}/${year}/constructorStandings.json`);
+    const response = await axios.get(`${ERGAST_API}/${year}/constructorStandings.json`, {
+      headers: {
+        'User-Agent': 'F1 Statistics App/1.0'
+      }
+    });
     res.json(response.data.MRData);
   } catch (error) {
     console.error('Error fetching constructor standings:', error);
@@ -48,7 +56,11 @@ app.get('/api/races/:year/:round?', async (req, res) => {
       ? `${ERGAST_API}/${year}/${round}/results.json`
       : `${ERGAST_API}/${year}/results.json`;
     
-    const response = await axios.get(url);
+    const response = await axios.get(url, {
+      headers: {
+        'User-Agent': 'F1 Statistics App/1.0'
+      }
+    });
     res.json(response.data.MRData);
   } catch (error) {
     console.error('Error fetching race results:', error);
@@ -60,7 +72,11 @@ app.get('/api/races/:year/:round?', async (req, res) => {
 app.get('/api/calendar/:year?', async (req, res) => {
   try {
     const year = req.params.year || new Date().getFullYear();
-    const response = await axios.get(`${ERGAST_API}/${year}.json`);
+    const response = await axios.get(`${ERGAST_API}/${year}.json`, {
+      headers: {
+        'User-Agent': 'F1 Statistics App/1.0'
+      }
+    });
     res.json(response.data.MRData);
   } catch (error) {
     console.error('Error fetching calendar:', error);
@@ -72,7 +88,11 @@ app.get('/api/calendar/:year?', async (req, res) => {
 app.get('/api/laps/:year/:round', async (req, res) => {
   try {
     const { year, round } = req.params;
-    const response = await axios.get(`${ERGAST_API}/${year}/${round}/laps.json`);
+    const response = await axios.get(`${ERGAST_API}/${year}/${round}/laps.json`, {
+      headers: {
+        'User-Agent': 'F1 Statistics App/1.0'
+      }
+    });
     res.json(response.data.MRData);
   } catch (error) {
     console.error('Error fetching lap times:', error);
@@ -84,7 +104,11 @@ app.get('/api/laps/:year/:round', async (req, res) => {
 app.get('/api/driver/:driverId/:year?', async (req, res) => {
   try {
     const year = req.params.year ? `/${req.params.year}` : '';
-    const response = await axios.get(`${ERGAST_API}${year}/drivers/${req.params.driverId}.json`);
+    const response = await axios.get(`${ERGAST_API}${year}/drivers/${req.params.driverId}.json`, {
+      headers: {
+        'User-Agent': 'F1 Statistics App/1.0'
+      }
+    });
     res.json(response.data.MRData);
   } catch (error) {
     console.error('Error fetching driver profile:', error);
@@ -95,7 +119,11 @@ app.get('/api/driver/:driverId/:year?', async (req, res) => {
 // Get all drivers
 app.get('/api/drivers', async (req, res) => {
   try {
-    const response = await axios.get(`${ERGAST_API}/drivers.json`);
+    const response = await axios.get(`${ERGAST_API}/drivers.json`, {
+      headers: {
+        'User-Agent': 'F1 Statistics App/1.0'
+      }
+    });
     res.json(response.data.MRData);
   } catch (error) {
     console.error('Error fetching drivers:', error);
