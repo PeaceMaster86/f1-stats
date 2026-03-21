@@ -28,8 +28,13 @@ app.get('/api/standings/:year?', async (req, res) => {
     });
     res.json(response.data);
   } catch (error) {
-    console.error('Error fetching driver standings:', error);
-    res.status(500).json({ error: 'Failed to fetch standings' });
+    if (error.response?.status === 404) {
+      console.log(`No standings data available for ${year} in OpenF1`);
+      res.json([]);
+    } else {
+      console.error('Error fetching driver standings:', error.message);
+      res.status(500).json({ error: 'Failed to fetch standings' });
+    }
   }
 });
 
@@ -45,8 +50,14 @@ app.get('/api/constructors/:year?', async (req, res) => {
     });
     res.json(response.data);
   } catch (error) {
-    console.error('Error fetching constructor standings:', error);
-    res.status(500).json({ error: 'Failed to fetch constructor standings' });
+    if (error.response?.status === 404) {
+      // OpenF1 may not have constructors endpoint for all years
+      console.log(`No constructor data available for ${year} in OpenF1`);
+      res.json([]);
+    } else {
+      console.error('Error fetching constructor standings:', error.message);
+      res.status(500).json({ error: 'Failed to fetch constructor standings' });
+    }
   }
 });
 
@@ -67,8 +78,13 @@ app.get('/api/races/:year/:round?', async (req, res) => {
     });
     res.json(response.data);
   } catch (error) {
-    console.error('Error fetching race results:', error);
-    res.status(500).json({ error: 'Failed to fetch race results' });
+    if (error.response?.status === 404) {
+      console.log(`No race data available for ${req.params.year}/${req.params.round}`);
+      res.json([]);
+    } else {
+      console.error('Error fetching race results:', error.message);
+      res.status(500).json({ error: 'Failed to fetch race results' });
+    }
   }
 });
 
@@ -84,8 +100,13 @@ app.get('/api/calendar/:year?', async (req, res) => {
     });
     res.json(response.data);
   } catch (error) {
-    console.error('Error fetching calendar:', error);
-    res.status(500).json({ error: 'Failed to fetch calendar' });
+    if (error.response?.status === 404) {
+      console.log(`No calendar data available for ${year}`);
+      res.json([]);
+    } else {
+      console.error('Error fetching calendar:', error.message);
+      res.status(500).json({ error: 'Failed to fetch calendar' });
+    }
   }
 });
 
