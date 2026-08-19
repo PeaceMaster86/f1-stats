@@ -24,42 +24,6 @@ A full-stack web application for viewing and analyzing Formula 1 race statistics
 - **Styling**: CSS3 with responsive design
 - **Port**: 3000 (default, via Create React App)
 
-## 📋 Project Structure
-
-```
-f1/
-├── server/                           # Backend server
-│   ├── package.json
-│   ├── server.js                    # Express server with API endpoints
-│   └── .env                         # Environment variables (create this)
-│
-├── client/                          # React frontend
-│   ├── package.json
-│   ├── public/
-│   │   └── index.html              # Main HTML file
-│   ├── src/
-│   │   ├── App.js                  # Main App component
-│   │   ├── App.css                 # App styles
-│   │   ├── index.js                # React entry point
-│   │   ├── index.css               # Global styles
-│   │   └── components/
-│   │       ├── Home.js             # Home page
-│   │       ├── Home.css
-│   │       ├── DriverStandings.js
-│   │       ├── ConstructorStandings.js
-│   │       ├── StandingsPage.css
-│   │       ├── RaceResults.js
-│   │       ├── RaceResults.css
-│   │       ├── RaceCalendar.js
-│   │       ├── RaceCalendar.css
-│   │       ├── DriverProfiles.js
-│   │       ├── DriverProfiles.css
-│   │       ├── LapTimes.js
-│   │       └── LapTimes.css
-│   └── build/                       # Production build (generated)
-│
-└── README.md
-```
 
 ## 🚀 Getting Started
 
